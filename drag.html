@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原生拖拽/html5拖拽API</title>
+    <style type="text/css">
+        #container{
+            position: absolute;
+            background: fuchsia;
+            width: 600px;
+            height: 100px;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        #content1, #content2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 400px;
+            height: 400px;
+        }
+        #content1 {
+            background: coral;
+            border: 2px solid currentColor;
+        }
+        #content2 {
+            background: cornflowerblue;
+            border: 2px solid currentColor;
+        }
+        .drager {
+            width: 100px;
+            height: 100px;
+            background: cyan;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    有本事过来啊~~~
+</div>
+
+<div style="display: flex; justify-content: space-between">
+    <div id="content1" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="drager" draggable="true" ondragstart="drag(event)"></div>
+    </div>
+    <div id="content2" ondrop="drop(event)" ondragover="allowDrop(event)">
+        &lt;
+    </div>
+</div>
+<script type="text/javascript" src="drag.js"></script>
+</body>
+</html>
