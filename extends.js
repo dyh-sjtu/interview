@@ -111,5 +111,30 @@ xiaohua_1.showScore();
 
 // 类class注意点
 
-
 // Map 和 Set, weakSet和weakMap
+
+
+
+
+统计数字
+
+/*问题描述
+
+计算数字k在0到n中的出现的次数，k可能是0~9的一个值
+例如n=12，k=1，在 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]，我们发现1出现了5次 (1, 10, 11, 12)
+
+解析： 最简单的方法就是遍历了，当然高级方法这里不探讨。那么简单的遍历又有什么问题呢？ 那就是遇到了比如111这样的数字。
+
+我们可以使用indexOf来判断是否出现过，但是出现了多少次该怎么判断？
+
+说一个思路，使用split方法，具体实现如下*/
+
+const digitCounts = function (k, n) {
+	let num = 0;
+	for(let i = 0; i<=n;i++){
+		if(String(i).indexOf(k) !== -1) {
+			num += (String(i).split(k).length-1)
+		}
+	}
+	return num
+};

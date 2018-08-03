@@ -122,3 +122,18 @@ new myPromise_2((resolve, reject) => {
 	let res = value + 'hahaha';
 	console.log(res)
 });
+
+
+// 实现一个异步generator自动执行器
+
+function run(genetor) {  // generator是一个迭代器函数
+	const iterator = genetor();
+	function autoRun(iteration) {
+		if(iteration.done) {return iteration.value;}
+		const anotherPromise = iteration.value;
+		anotherPromise.then(x => {
+			return autoRun(iterator.next(x));
+		})
+	}
+	return autoRun(iterator.next());
+}
