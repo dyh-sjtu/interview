@@ -146,3 +146,16 @@ console.log(getLinkList([1,2,3,5,8,7,6,5,8,7,1,6,5,8], [5,8,7]));
 
 
 
+console.log([1,2,3].slice(-3,-1));
+let arrr = [1,2,3];
+arrr.push([4,5]);
+console.log(arrr);
+
+var arr1 = "john".split('');
+var arr2 = arr1.reverse();
+var arr3 = "jones".split('');
+arr2.push(arr3);
+console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1));
+console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));
+console.log([1,2,3] + 'hahah');
+
