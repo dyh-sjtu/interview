@@ -1,7 +1,7 @@
 // 生成用于测试的数组
 // 初始化数组
 function test() {
-	let initArr = Array.from({length: 20}, (item, index) => index + 2);
+	let initArr = Array.from({length: 20}, (item, index) => index + 1);
 	let generateArr = initArr.sort((a, b) => Math.random() > 0.5 ? 1 : -1);
 	console.log("排序前: " + '[' + generateArr + ']');
 	return generateArr;
@@ -216,6 +216,36 @@ console.log('排序后: [' + test().mergeSort() + ']');
 console.log('快速排序1后: [' + test().quickSort() + ']');
 console.log('快速排序2后: [' + quickSort(test()) + ']');
 
+/**
+ * 选取待排序数组第一个作为基准数
+ * @param arr
+ * @param left
+ * @param right
+ */
+function quickSort_easy(arr) {
+	quick_sort(arr, 0, arr.length-1);
+	console.log('排序后: [' + arr + ']');
+	function quick_sort(arr, left, right) {
+		if (left >= right) return;  // 一趟排序已完成
+		let i = left, j = right, pivot = arr[left];
+		while(i < j) {
+			while(arr[j] >= pivot && i < j) {
+				j--;
+			}
+			arr[i] = arr[j];
+			while(arr[i] <= pivot && i < j) {
+				i++;
+			}
+			arr[j] = arr[i];
+		}
+		arr[i] = pivot;
+		quick_sort(arr, left, i-1);
+		quick_sort(arr, i+1, right);
+	}
+}
+
+let testArr = test();
+console.log(quickSort_easy(testArr));
 
 
 

@@ -92,8 +92,8 @@
 
 function buildList(list) {
 	let res = [];
-	for (var i = 0; i < list.length; i++) {
-		var item = 'item' + list[i];
+	for (let i = 0; i < list.length; i++) {
+		let item = 'item' + list[i];
 		res.push(function () {
 			console.log(item + ' ' + list[i]);
 		})
@@ -106,5 +106,43 @@ function buildList(list) {
 	for (var j = 0; j < fnlist.length; j++) {
 		fnlist[j]();
 	}
-})()
+})();
+
+
+function getLinkList(arr1, arr2) {
+	let len1 = arr1.length;
+	let res = [];
+	for (let i = 0; i < len1; i++) {
+		if (arr1[i] !== arr2[0]) {
+			continue;
+		}
+		let flag = compare(arr1, arr2, i);
+		if (flag) {
+			res.push(i);
+		}
+	}
+	return res;
+}
+
+function compare(arr1, arr2, i) {
+	let len2 = arr2.length;
+	let flag = true;
+	let n = 1;
+	while (n < len2) {
+		if (arr1[i+1] !== arr2[n] || arr1[i+1] === undefined) {
+			flag = false;
+			break;
+		}else {
+			i++;
+			n++;
+		}
+	}
+	return flag;
+}
+
+console.log(getLinkList([1,2,3,5,8,7,6,5,8,7,1,6,5,8], [5,8,7]));
+
+
+
+
 

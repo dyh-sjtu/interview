@@ -23,7 +23,7 @@ box.onmouseup = function () {
 
 
 function drop(event) {
-	event.preventDefault()
+	event.preventDefault();
 	let data = event.dataTransfer.getData('Text');
 	event.target.appendChild(document.getElementsByClassName(data)[0]);
 }
